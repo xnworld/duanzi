@@ -252,11 +252,41 @@ body {
 
 
 
+
+
+/* 添加到 <style> 标签中 */
+.smile-icon {
+    font-size: 24px; /* 图标大小 */
+    margin-right: 10px; /* 图标与文字的间距 */
+    vertical-align: middle; /* 垂直居中对齐 */
+}
+
+h1 a {
+    text-decoration: none; /* 去掉下划线 */
+    color: #007BFF; /* 颜色 */
+    display: inline-block; /* 使整个标题可以点击 */
+}
+
+h1 a:hover {
+  /*   text-decoration: underline; 鼠标悬停时显示下划线 */
+}
+
+
+
+
+
+
+
+
     </style>
 </head>
 
 <body>
-    <h1>段子网</h1>
+    <h1>
+    <a href="http://duanzi.xnworld.com/" title="返回首页">
+        <span class="smile-icon">😊</span> 段子网
+    </a>
+</h1>
     <!-- 搜索框和分类选择框容器 -->
     <div class="search-and-filter">
         <input type="text" id="searchInput" placeholder="搜索段子...">
@@ -1908,8 +1938,8 @@ async function loadMoreJokes() {
     id: 195,
     title: "螃蟹出门",
     category: "搞笑段子",
-    content: "螃蟹出门不小心撞倒了泥鳅。泥鳅很生气地说：“你是不是瞎啊！”螃蟹很委屈地说：“不是啊，我是螃蟹！”,
-    funnyIndex: 6,
+    content: "螃蟹出门不小心撞倒了泥鳅。泥鳅很生气地说：“你是不是瞎啊！”螃蟹很委屈地说：“不是啊，我是螃蟹！” ", 
+     funnyIndex: 6,
     publishTime: "2025-02-19"
 },
 {
@@ -2299,6 +2329,33 @@ async function loadMoreJokes() {
 
 
     </script>
+
+
+
+
+
+<!--     百度统计代码     -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a137f02a146bede54811e2b14c37ef8f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+<!--     谷歌广告代码     -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5624361140780293"
+     crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
