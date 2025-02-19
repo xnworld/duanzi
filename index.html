@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>段子网</title>
+
+
+
+<!-- 网站描述，简要概括网站内容 -->
+<meta name="description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
+<!-- 关键词，利于搜索引擎识别网站主题 -->
+<meta name="keywords" content="段子网, 搞笑段子, 人生感悟, 名言佳句, 网络热词">
+<!-- 搜索引擎索引规则，all 表示允许搜索引擎索引所有页面 -->
+<meta name="robots" content="all">
+<!-- 作者信息 -->
+<meta name="author" content="网站作者名称">
+<!-- 页面语言 -->
+<meta name="language" content="zh-CN">
+<!-- 网页重定向和规范链接（如果有多个版本页面） -->
+<link rel="canonical" href="https://duanzi.xnworld.com/index.html">
+<!-- 开放图谱协议，用于社交媒体分享显示 -->
+<meta property="og:title" content="段子网">
+<meta property="og:description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
+<meta property="og:url" content="https://duanzi.xnworld.com/index.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://duanzi.xnworld.com/path/to/your/image.jpg">
+<!-- Twitter 卡片，用于 Twitter 分享显示 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="段子网">
+<meta name="twitter:description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
+<meta name="twitter:image" content="https://duanzi.xnworld.com/path/to/your/image.jpg">
+
+
+
+
+
+
+
+
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* 标题样式 */
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            background-color: #fff;
+            padding: 20px;
+            margin: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 搜索框和分类选择框容器样式 */
+       .search-and-filter {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        /* 搜索框和分类选择框通用样式 */
+        input,
+        select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        /* 瀑布流容器样式 */
+       .masonry {
+            column-count: 1;
+            column-gap: 20px;
+            padding: 20px;
+        }
+
+        /* 不同屏幕宽度下瀑布流列数调整 */
+        @media (min-width: 768px) {
+           .masonry {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+           .masonry {
+                column-count: 3;
+            }
+        }
+
+        /* 单个段子项样式 */
+       .masonry .item {
+            display: inline-block;
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            break-inside: avoid;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+       .masonry .item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 不同分类段子项的颜色区分 */
+       .masonry .item[data-category="搞笑段子"] {
+            border-left: 5px solid #FFC107;
+        }
+
+       .masonry .item[data-category="人生感悟"] {
+            border-left: 5px solid #28A745;
+        }
+
+       .masonry .item[data-category="名言佳句"] {
+            border-left: 5px solid #17A2B8;
+        }
+
+       .masonry .item[data-category="网络热词"] {
+            border-left: 5px solid #DC3545;
+        }
+
+        /* 段子项内文字样式优化 */
+       .masonry .item p {
+            margin: 8px 0;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+       .masonry .item p strong {
+            color: #007BFF;
+            font-size: 16px;
+        }
+
+
+
+input::placeholder {
+    transition: color 0.3s ease;
+}
+
+input:focus::placeholder {
+    color: #aaa;
+}
+
+
+
+.masonry .item {
+    /* 其他样式保持不变 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    /* 其他样式保持不变 */
+    animation: fadeIn 0.8s ease-out;
+}
+
+
+
+body {
+    /* 其他样式保持不变 */
+    background: linear-gradient(135deg, #f4f4f9 0%, #e0e0e0 100%);
+}
+
+
+
+
+
+
+
+
+       .masonry .item p:nth-child(1) {
+            font-weight: bold;
+            color: #666;
+        }
+
+       .masonry .item p:nth-child(3) {
+            font-style: italic;
+            color: #999;
+        }
+
+        /* 星星样式 */
+       .star {
+            color: gold;
+        }
+
+        /* 回到顶部按钮样式 */
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        #backToTopBtn:hover {
+            background-color: #0056b3;
+        }
+
+
+/* 优化段子内容样式 */
+.masonry .item p:nth-child(4) { /* 假设内容是第 4 个 p 元素 */
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <h1>段子网</h1>
+    <!-- 搜索框和分类选择框容器 -->
+    <div class="search-and-filter">
+        <input type="text" id="searchInput" placeholder="搜索段子...">
+        <select id="categorySelect">
+            <option value="all">全部</option>
+            <option value="搞笑段子">搞笑段子</option>
+            <option value="人生感悟">人生感悟</option>
+            <option value="名言佳句">名言佳句</option>
+            <option value="网络热词">网络热词</option>
+        </select>
+
+ 
+
+
+    </div>
+
+
+
+ 
+
+<script>
+
+
+
+
+
+
+
+
+
+
+let isLoading = false;
+
+// 加载更多段子
+async function loadMoreJokes() {
+    if (isLoading) return;
+    isLoading = true;
+    loadingIndicator.style.display = 'block';
+    await new Promise(resolve => setTimeout(resolve, 1000)); // 模拟加载延迟
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedCategory = categorySelect.value;
+    let filteredJokes = jokes;
+    if (selectedCategory!== 'all') {
+        filteredJokes = filteredJokes.filter(joke => joke.category === selectedCategory);
+    }
+    if (searchTerm) {
+        filteredJokes = filteredJokes.filter(joke =>
+            joke.title.toLowerCase().includes(searchTerm) ||
+            joke.content.toLowerCase().includes(searchTerm)
+        );
+    }
+    const endIndex = currentIndex + loadCount;
+    if (endIndex <= filteredJokes.length) {
+        for (let i = currentIndex; i < endIndex; i++) {
+            const joke = filteredJokes[i];
+            const item = document.createElement('div');
+            item.classList.add('item');
+            item.setAttribute('data-category', joke.category);
+            const starRating = getStarRating(joke.funnyIndex);
+            item.innerHTML = `
+                <p>序号: ${i + 1}</p>
+                <p>标题: <strong>${joke.title}</strong></p>
+                <p>分类: ${joke.category}</p>
+                <p>内容: ${joke.content}</p>
+                <p>搞笑指数: ${starRating}</p>
+                <p>发布时间: ${joke.publishTime}</p>
+            `;
+            jokeContainer.appendChild(item);
+        }
+        currentIndex = endIndex;
+    }
+    loadingIndicator.style.display = 'none';
+    isLoading = false;
+}
+
+
+</script>
+
+
+
+
+
+
+
+    <!-- 瀑布流容器 -->
+    <div class="masonry" id="jokeContainer"></div>
+    <!-- 回到顶部按钮 -->
+    <button id="backToTopBtn" title="回到顶部">↑</button>
+    <script>
+        // 15 个样本数据
+        const jokes = [
+            {
+                id: 1,
+                title: "办公室的幽默",
+                category: "搞笑段子",
+                content: "小王在办公室抱怨：“我感觉我像一只羊。”同事问：“为啥？”小王说：“我每天都被工作薅羊毛！”",
+                funnyIndex: 8,
+                publishTime: "2024-11-01"
+            },
+            {
+                id: 2,
+                title: "爱情的思考",
+                category: "人生感悟",
+                content: "爱情不是寻找一个完美的人，而是学会用完美的眼光欣赏那个不完美的人。",
+                funnyIndex: 2,
+                publishTime: "2024-10-15"
+            },
+            {
+                id: 3,
+                title: "经典名言",
+                category: "名言佳句",
+                content: "书籍是人类进步的阶梯。",
+                funnyIndex: 1,
+                publishTime: "2024-10-01"
+            },
+            {
+                id: 4,
+                title: "网络新潮流",
+                category: "网络热词",
+                content: "“摆烂”指事情已经无法向好的方向发展，于是就干脆不再采取措施加以控制而是任由其往坏的方向继续发展下去。",
+                funnyIndex: 3,
+                publishTime: "2024-09-15"
+            },
+            {
+                id: 5,
+                title: "动物园趣事",
+                category: "搞笑段子",
+                content: "在动物园，小明问爸爸：“爸爸，长颈鹿的脖子为啥这么长？”爸爸说：“因为它太爱八卦了！”",
+                funnyIndex: 7,
+                publishTime: "2024-09-01"
+            },
+            {
+                id: 6,
+                title: "生活的真谛",
+                category: "人生感悟",
+                content: "生活就像骑自行车，要想保持平衡就得往前走。",
+                funnyIndex: 2,
+                publishTime: "2024-08-15"
+            },
+            {
+                id: 7,
+                title: "智慧之言",
+                category: "名言佳句",
+                content: "世上无难事，只怕有心人。",
+                funnyIndex: 1,
+                publishTime: "2024-08-01"
+            },
+            {
+                id: 8,
+                title: "网络新梗",
+                category: "网络热词",
+                content: "“666”通常用于形容某人或某物很厉害、很牛、令人折服。",
+                funnyIndex: 3,
+                publishTime: "2024-07-15"
+            },
+            {
+                id: 9,
+                title: "校园笑话",
+                category: "搞笑段子",
+                content: "老师：“用一句话证明你看过四大名著。”学生：“哥哥救我，军师救我，妹妹救我，悟空救我。”",
+                funnyIndex: 8,
+                publishTime: "2024-07-01"
+            },
+            {
+                id: 10,
+                title: "成长的感悟",
+                category: "人生感悟",
+                content: "成长就是将哭调成静音的过程。",
+                funnyIndex: 2,
+                publishTime: "2024-06-15"
+            },
+           {
+    id: 11,
+    title: "吃饭趣事",
+    category: "搞笑段子",
+    content: "吃饭的时候，朋友问我：‘你知道为什么螃蟹走路是横着走吗？’ 我想了半天没想出来，他得意地说：‘因为它有钱，所以横行霸道！’",
+    funnyIndex: 7,
+    publishTime: "2024-06-15"
+},
+{
+    id: 12,
+    title: "工作的无奈",
+    category: "人生感悟",
+    content: "工作就像一场马拉松，你不知道终点在哪里，只知道一直在跑，还不能停下来。",
+    funnyIndex: 2,
+    publishTime: "2024-06-01"
+},
+{
+    id: 13,
+    title: "励志名言",
+    category: "名言佳句",
+    content: "千淘万漉虽辛苦，吹尽狂沙始到金。",
+    funnyIndex: 1,
+    publishTime: "2024-05-15"
+},
+{
+    id: 14,
+    title: "网络用语解读",
+    category: "网络热词",
+    content: "‘yyds’是‘永远的神’的缩写，用于表达对某人或某物的高度赞扬。",
+    funnyIndex: 3,
+    publishTime: "2024-05-01"
+},
+{
+    id: 15,
+    title: "医院笑话",
+    category: "搞笑段子",
+    content: "医生问病人是怎么骨折的，病人说：‘我觉得鞋里有沙子，就扶着电线杆抖鞋，有个人经过那里，以为我触电了，便抄起木棍给了我两棍子！’",
+    funnyIndex: 8,
+    publishTime: "2024-04-15"
+},
+{
+    id: 16,
+    title: "友情的真谛",
+    category: "人生感悟",
+    content: "真正的友情，不是花言巧语，而是关键时候拉你一把。",
+    funnyIndex: 2,
+    publishTime: "2024-04-01"
+},
+{
+    id: 17,
+    title: "经典古语",
+    category: "名言佳句",
+    content: "天行健，君子以自强不息。",
+    funnyIndex: 1,
+    publishTime: "2024-03-15"
+},
+{
+    id: 18,
+    title: "网络新现象",
+    category: "网络热词",
+    content: "‘emo’通常用来形容情绪低落、沮丧、失落的状态。",
+    funnyIndex: 3,
+    publishTime: "2024-03-01"
+},
+{
+    id: 19,
+    title: "家庭笑话",
+    category: "搞笑段子",
+    content: "儿子问爸爸：‘爸爸，为什么蚕宝宝很有钱？’ 爸爸想了想，儿子抢着说：‘因为它会结茧（节俭）！’",
+    funnyIndex: 7,
+    publishTime: "2024-02-15"
+},
+{
+    id: 20,
+    title: "爱情的真谛",
+    category: "人生感悟",
+    content: "爱情不是一时的激情，而是长久的陪伴。",
+    funnyIndex: 2,
+    publishTime: "2024-02-01"
+},
+{
+    id: 21,
+    title: "名言警句",
+    category: "名言佳句",
+    content: "不积跬步，无以至千里；不积小流，无以成江海。",
+    funnyIndex: 1,
+    publishTime: "2024-01-15"
+},
+{
+    id: 22,
+    title: "网络热梗解析",
+    category: "网络热词",
+    content: "‘凡尔赛文学’是指用先抑后扬、明贬暗褒的方式进行炫耀。",
+    funnyIndex: 3,
+    publishTime: "2024-01-01"
+},
+{
+    id: 23,
+    title: "学校趣事",
+    category: "搞笑段子",
+    content: "老师问：‘用一句话证明你没看过四大名著。’ 学生：‘哥哥是谁，军师是谁，妹妹是谁，悟空是谁。’",
+    funnyIndex: 8,
+    publishTime: "2023-12-15"
+},
+{
+    id: 24,
+    title: "成长的烦恼",
+    category: "人生感悟",
+    content: "成长就像剥洋葱，一层一层地剥开，总有一层会让你流泪。",
+    funnyIndex: 2,
+    publishTime: "2023-12-01"
+},
+{
+    id: 25,
+    title: "励志古语",
+    category: "名言佳句",
+    content: "宝剑锋从磨砺出，梅花香自苦寒来。",
+    funnyIndex: 1,
+    publishTime: "2023-11-15"
+},
+{
+    id: 26,
+    title: "网络流行语",
+    category: "网络热词",
+    content: "‘躺平’是指人在面对压力时，内心再无波澜，主动放弃，不做任何反抗。",
+    funnyIndex: 3,
+    publishTime: "2023-11-01"
+},
+{
+    id: 27,
+    title: "商场笑话",
+    category: "搞笑段子",
+    content: "顾客：‘你们卖的酒怎么没有酒味啊？’ 服务员：‘对不起，先生，我们忘记给您掺酒了。’",
+    funnyIndex: 7,
+    publishTime: "2023-10-15"
+},
+{
+    id: 28,
+    title: "友情的珍贵",
+    category: "人生感悟",
+    content: "真正的朋友，是在你落魄时，依然愿意陪在你身边的人。",
+    funnyIndex: 2,
+    publishTime: "2023-10-01"
+},
+{
+    id: 29,
+    title: "经典名言",
+    category: "名言佳句",
+    content: "老骥伏枥，志在千里。",
+    funnyIndex: 1,
+    publishTime: "2023-09-15"
+},
+{
+    id: 30,
+    title: "网络新词汇",
+    category: "网络热词",
+    content: "‘内卷’原指一类文化模式达到了某种最终的形态以后，既没有办法稳定下来，也没有办法转变为新的形态，而只能不断地在内部变得更加复杂的现象，现在多指同行间竞相付出更多努力以争夺有限资源。",
+    funnyIndex: 3,
+    publishTime: "2023-09-01"
+},
+{
+    id: 31,
+    title: "公园笑话",
+    category: "搞笑段子",
+    content: "许仙给老婆买了一顶帽子，白娘子戴上之后就死了，因为那是顶鸭（压）舌（蛇）帽。",
+    funnyIndex: 8,
+    publishTime: "2023-08-15"
+},
+{
+    id: 32,
+    title: "爱情的美好",
+    category: "人生感悟",
+    content: "爱情是一场美丽的邂逅，让两个陌生的人走到一起，相互陪伴，相互成长。",
+    funnyIndex: 2,
+    publishTime: "2023-08-01"
+},
+{
+    id: 33,
+    title: "励志语句",
+    category: "名言佳句",
+    content: "长风破浪会有时，直挂云帆济沧海。",
+    funnyIndex: 1,
+    publishTime: "2023-07-15"
+},
+{
+    id: 34,
+    title: "网络用语",
+    category: "网络热词",
+    content: "‘破防’指的是遇到一些事或看到一些信息后情感上受到很大冲击，内心深处被触动，心理防线被突破。",
+    funnyIndex: 3,
+    publishTime: "2023-07-01"
+},
+{
+    id: 35,
+    title: "餐厅笑话",
+    category: "搞笑段子",
+    content: "服务员：‘请问您要几分熟的牛排？’ 顾客：‘我要七分熟，一分熟的太嫩，九分熟的太老，七分熟刚刚好。’ 服务员：‘好的，请稍等，我去给您拿八成熟的，再帮您咬一口。’",
+    funnyIndex: 7,
+    publishTime: "2023-06-15"
+},
+{
+    id: 36,
+    title: "友情的力量",
+    category: "人生感悟",
+    content: "友情就像一盏明灯，在你迷失方向时，为你照亮前行的路。",
+    funnyIndex: 2,
+    publishTime: "2023-06-01"
+},
+{
+    id: 37,
+    title: "经典古语",
+    category: "名言佳句",
+    content: "采得百花成蜜后，为谁辛苦为谁甜。",
+    funnyIndex: 1,
+    publishTime: "2023-05-15"
+},
+{
+    id: 38,
+    title: "网络热梗",
+    category: "网络热词",
+    content: "‘emo 文学’是指用一些比较文艺、伤感的文字来表达自己的情绪低落。",
+    funnyIndex: 3,
+    publishTime: "2023-05-01"
+},
+{
+    id: 39,
+    title: "动物园趣事",
+    category: "搞笑段子",
+    content: "螃蟹出门不小心撞倒了泥鳅，泥鳅很生气地说：‘你是不是瞎啊！’ 螃蟹很委屈地说：‘不是啊，我是螃蟹！’",
+    funnyIndex: 8,
+    publishTime: "2023-04-15"
+},
+{
+    id: 40,
+    title: "爱情的苦涩",
+    category: "人生感悟",
+    content: "爱情有时候就像一杯苦咖啡，虽然苦涩，但却让人回味无穷。",
+    funnyIndex: 2,
+    publishTime: "2023-04-01"
+},
+{
+    id: 41,
+    title: "励志名言",
+    category: "名言佳句",
+    content: "有志者、事竟成，破釜沉舟，百二秦关终属楚；苦心人、天不负，卧薪尝胆，三千越甲可吞吴。",
+    funnyIndex: 1,
+    publishTime: "2023-03-15"
+},
+{
+    id: 42,
+    title: "网络用语解析",
+    category: "网络热词",
+    content: "‘yyds’不仅可以用于形容人，还可以用于形容事物，比如一部好电影、一首歌等。",
+    funnyIndex: 3,
+    publishTime: "2023-03-01"
+},
+{
+    id: 43,
+    title: "医院笑话",
+    category: "搞笑段子",
+    content: "医生问病人：‘你怎么了？’ 病人说：‘我睡不着。’ 医生说：‘这些药丸，红色可以让你梦见刘德华，白色梦见杰伦，绿色梦见润发！’ 病人说：‘那我一起吃呢？’ 医生说：‘那你可以见到国荣！’",
+    funnyIndex: 7,
+    publishTime: "2023-02-15"
+},
+{
+    id: 44,
+    title: "友情的珍贵",
+    category: "人生感悟",
+    content: "友情是一种无形的财富，它可以在你困难时给你支持，在你快乐时与你分享。",
+    funnyIndex: 2,
+    publishTime: "2023-02-01"
+},
+{
+    id: 45,
+    title: "经典名言",
+    category: "名言佳句",
+    content: "勿以恶小而为之，勿以善小而不为。",
+    funnyIndex: 1,
+    publishTime: "2023-01-15"
+},
+{
+    id: 46,
+    title: "网络热梗",
+    category: "网络热词",
+    content: "‘社死’是指社会性死亡，即一个人在公众场合做出了非常尴尬的事情，导致自己的形象在他人心中受到了严重的损害。",
+    funnyIndex: 3,
+    publishTime: "2023-01-01"
+},
+{
+    id: 47,
+    title: "家庭笑话",
+    category: "搞笑段子",
+    content: "儿子问妈妈：‘妈妈，为什么蜗牛爬得那么慢？’ 妈妈说：‘因为它太胆小，总是背着重重的壳，怕被别人欺负。’ 儿子说：‘那它把壳脱了不就好了？’ 妈妈说：‘那它就变成鼻涕虫了！’",
+    funnyIndex: 8,
+    publishTime: "2022-12-15"
+},
+{
+    id: 48,
+    title: "爱情的美好",
+    category: "人生感悟",
+    content: "爱情就像一朵盛开的花朵，需要双方共同呵护，才能绽放出最美的光彩。",
+    funnyIndex: 2,
+    publishTime: "2022-12-01"
+},
+{
+    id: 49,
+    title: "励志古语",
+    category: "名言佳句",
+    content: "天行有常，不为尧存，不为桀亡。",
+    funnyIndex: 1,
+    publishTime: "2022-11-15"
+},
+{
+    id: 50,
+    title: "网络流行语",
+    category: "网络热词",
+    content: "‘拿捏’通常表示对某件事情或某个人有很好的掌控力。",
+    funnyIndex: 3,
+    publishTime: "2022-11-01"
+},
+
+{
+    id: 51,
+    title: "加班的无奈",
+    category: "搞笑段子",
+    content: "程序员加班到很晚，回家后老婆抱怨：‘你就不能早点回来陪陪我吗？’程序员说：‘亲爱的，我在给你创造和别人老公逛街的机会呀。’",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 52,
+    title: "吃货的世界",
+    category: "搞笑段子",
+    content: "朋友问我：‘你为啥这么爱吃？’我回答：‘因为我要抓住每一个能吃的机会，万一哪天没吃的了，我肚子里存的那些还能撑一阵子。’",
+    funnyIndex: 7,
+    publishTime: "2025-02-18"
+},
+{
+    id: 53,
+    title: "运动的真谛",
+    category: "人生感悟",
+    content: "运动不仅仅是为了拥有好身材，更是为了在生活的每一个瞬间，都能有足够的活力去拥抱快乐和挑战。",
+    funnyIndex: 2,
+    publishTime: "2025-02-17"
+},
+{
+    id: 54,
+    title: "读书的意义",
+    category: "人生感悟",
+    content: "读书就像一场旅行，每一本书都是一个不同的世界，让我们在有限的生命里体验无限的可能。",
+    funnyIndex: 2,
+    publishTime: "2025-02-16"
+},
+{
+    id: 55,
+    title: "勤奋的名言",
+    category: "名言佳句",
+    content: "业精于勤，荒于嬉；行成于思，毁于随。",
+    funnyIndex: 1,
+    publishTime: "2025-02-15"
+},
+{
+    id: 56,
+    title: "坚持的力量",
+    category: "名言佳句",
+    content: "锲而不舍，金石可镂。",
+    funnyIndex: 1,
+    publishTime: "2025-02-14"
+},
+{
+    id: 57,
+    title: "网络新用语",
+    category: "网络热词",
+    content: "“凡尔赛文学”指用先抑后扬、明贬暗褒的方式炫耀自己。",
+    funnyIndex: 3,
+    publishTime: "2025-02-13"
+},
+{
+    id: 58,
+    title: "另一个网络热词",
+    category: "网络热词",
+    content: "“yyds”是‘永远的神’的缩写，用来形容某人或某物非常厉害。",
+    funnyIndex: 3,
+    publishTime: "2025-02-12"
+},
+{
+    id: 59,
+    title: "医院趣事",
+    category: "搞笑段子",
+    content: "病人对医生说：‘医生，我觉得我最近精神状态不太好，老是忘东西。’医生说：‘那你从什么时候开始发现自己有这个问题的？’病人想了半天说：‘啥问题来着？’",
+    funnyIndex: 8,
+    publishTime: "2025-02-11"
+},
+{
+    id: 60,
+    title: "生活的小确幸",
+    category: "人生感悟",
+    content: "生活中的小确幸，或许就是在忙碌一天后，回到家闻到的那股饭菜香。",
+    funnyIndex: 2,
+    publishTime: "2025-02-10"
+},
+{
+    id: 61,
+    title: "历史名言",
+    category: "名言佳句",
+    content: "为中华之崛起而读书。",
+    funnyIndex: 1,
+    publishTime: "2025-02-09"
+},
+{
+    id: 62,
+    title: "网络流行梗",
+    category: "网络热词",
+    content: "“emo”指情绪化，通常用来形容一个人在深夜陷入悲伤、失落的情绪。",
+    funnyIndex: 3,
+    publishTime: "2025-02-08"
+},
+{
+    id: 63,
+    title: "课堂笑话",
+    category: "搞笑段子",
+    content: "老师问：‘用一句话形容一个人很懒。’学生答：‘懒得抽筋。’",
+    funnyIndex: 7,
+    publishTime: "2025-02-07"
+},
+{
+    id: 64,
+    title: "成长的烦恼",
+    category: "人生感悟",
+    content: "成长的烦恼就像一场雨，总是在不经意间淋湿我们的心，但也让我们更加坚强。",
+    funnyIndex: 2,
+    publishTime: "2025-02-06"
+},
+{
+    id: 65,
+    title: "励志名言",
+    category: "名言佳句",
+    content: "长风破浪会有时，直挂云帆济沧海。",
+    funnyIndex: 1,
+    publishTime: "2025-02-05"
+},
+{
+    id: 66,
+    title: "新网络用语",
+    category: "网络热词",
+    content: "“破防了”指遇到一些事或看到一些信息后情感上受到很大冲击，内心深处被触动。",
+    funnyIndex: 3,
+    publishTime: "2025-02-04"
+},
+{
+    id: 67,
+    title: "餐厅趣事",
+    category: "搞笑段子",
+    content: "服务员问顾客：‘您的牛排要几分熟？’顾客说：‘我要82年的拉菲做的牛排。’",
+    funnyIndex: 8,
+    publishTime: "2025-02-03"
+},
+{
+    id: 68,
+    title: "友情的珍贵",
+    category: "人生感悟",
+    content: "友情就像一杯茶，越品越香，在岁月的沉淀中愈发珍贵。",
+    funnyIndex: 2,
+    publishTime: "2025-02-02"
+},
+{
+    id: 69,
+    title: "经典古语",
+    category: "名言佳句",
+    content: "老骥伏枥，志在千里。",
+    funnyIndex: 1,
+    publishTime: "2025-02-01"
+},
+{
+    id: 70,
+    title: "网络新词",
+    category: "网络热词",
+    content: "“内卷”指同行间竞相付出更多努力以争夺有限资源，从而导致个体‘收益努力比’下降的现象。",
+    funnyIndex: 3,
+    publishTime: "2025-01-31"
+},
+{
+    id: 71,
+    title: "旅行笑话",
+    category: "搞笑段子",
+    content: "导游说：‘这里的风景就像一幅画。’游客说：‘那我能不能把它带回家挂墙上？’",
+    funnyIndex: 7,
+    publishTime: "2025-01-30"
+},
+{
+    id: 72,
+    title: "爱情的甜蜜",
+    category: "人生感悟",
+    content: "爱情的甜蜜就像蜂蜜，滋润着我们的心田，让生活变得更加美好。",
+    funnyIndex: 2,
+    publishTime: "2025-01-29"
+},
+{
+    id: 73,
+    title: "哲理名言",
+    category: "名言佳句",
+    content: "千淘万漉虽辛苦，吹尽狂沙始到金。",
+    funnyIndex: 1,
+    publishTime: "2025-01-28"
+},
+{
+    id: 74,
+    title: "热门网络语",
+    category: "网络热词",
+    content: "“躺平”指人在面对压力时，内心再无波澜，主动放弃，不做任何反抗。",
+    funnyIndex: 3,
+    publishTime: "2025-01-27"
+},
+{
+    id: 75,
+    title: "商场趣事",
+    category: "搞笑段子",
+    content: "顾客问售货员：‘这个东西怎么用？’售货员说：‘我也不知道，我只是负责卖。’",
+    funnyIndex: 8,
+    publishTime: "2025-01-26"
+},
+{
+    id: 76,
+    title: "家庭的温暖",
+    category: "人生感悟",
+    content: "家庭的温暖就像一盏明灯，在黑暗中为我们照亮前行的路。",
+    funnyIndex: 2,
+    publishTime: "2025-01-25"
+},
+{
+    id: 77,
+    title: "古代名言",
+    category: "名言佳句",
+    content: "勿以恶小而为之，勿以善小而不为。",
+    funnyIndex: 1,
+    publishTime: "2025-01-24"
+},
+{
+    id: 78,
+    title: "网络流行语",
+    category: "网络热词",
+    content: "“yygq”是‘阴阳怪气’的缩写，指说话时态度模棱两可、话中带刺。",
+    funnyIndex: 3,
+    publishTime: "2025-01-23"
+},
+{
+    id: 79,
+    title: "公交趣事",
+    category: "搞笑段子",
+    content: "公交车上，一个人放了个屁，旁边的人说：‘谁啊，这么有节奏感。’",
+    funnyIndex: 7,
+    publishTime: "2025-01-22"
+},
+{
+    id: 80,
+    title: "梦想的力量",
+    category: "人生感悟",
+    content: "梦想的力量是无穷的，它就像一颗种子，在我们心中生根发芽，激励我们不断前进。",
+    funnyIndex: 2,
+    publishTime: "2025-01-21"
+},
+{
+    id: 81,
+    title: "励志古语",
+    category: "名言佳句",
+    content: "天行健，君子以自强不息。",
+    funnyIndex: 1,
+    publishTime: "2025-01-20"
+},
+{
+    id: 82,
+    title: "新网络词汇",
+    category: "网络热词",
+    content: "“社恐”指社交恐惧症，在社交场合中会感到极度紧张和不安。",
+    funnyIndex: 3,
+    publishTime: "2025-01-19"
+},
+{
+    id: 83,
+    title: "医院幽默",
+    category: "搞笑段子",
+    content: "医生对病人说：‘你这个病啊，从医学角度来说，是没救了。’病人说：‘那从哪个角度来说有救？’",
+    funnyIndex: 8,
+    publishTime: "2025-01-18"
+},
+{
+    id: 84,
+    title: "友情的力量",
+    category: "人生感悟",
+    content: "友情的力量是伟大的，它能在我们遇到困难时给予我们支持和鼓励。",
+    funnyIndex: 2,
+    publishTime: "2025-01-17"
+},
+{
+    id: 85,
+    title: "经典名句",
+    category: "名言佳句",
+    content: "采得百花成蜜后，为谁辛苦为谁甜。",
+    funnyIndex: 1,
+    publishTime: "2025-01-16"
+},
+{
+    id: 86,
+    title: "网络热梗",
+    category: "网络热词",
+    content: "“小丑竟是我自己”用来调侃自己自作多情或陷入尴尬境地。",
+    funnyIndex: 3,
+    publishTime: "2025-01-15"
+},
+{
+    id: 87,
+    title: "理发店趣事",
+    category: "搞笑段子",
+    content: "顾客对理发师说：‘我要剪个帅一点的发型。’理发师说：‘那你得先长得帅一点。’",
+    funnyIndex: 7,
+    publishTime: "2025-01-14"
+},
+{
+    id: 88,
+    title: "爱情的无奈",
+    category: "人生感悟",
+    content: "爱情有时候就像一场赌博，我们总是在不经意间投入了全部，却不一定能得到想要的结果。",
+    funnyIndex: 2,
+    publishTime: "2025-01-13"
+},
+{
+    id: 89,
+    title: "古人智慧",
+    category: "名言佳句",
+    content: "知之者不如好之者，好之者不如乐之者。",
+    funnyIndex: 1,
+    publishTime: "2025-01-12"
+},
+{
+    id: 90,
+    title: "网络用语解析",
+    category: "网络热词",
+    content: "“u1s1”是‘有一说一’的缩写，意思是实话实说。",
+    funnyIndex: 3,
+    publishTime: "2025-01-11"
+},
+{
+    id: 91,
+    title: "超市笑话",
+    category: "搞笑段子",
+    content: "顾客问超市员工：‘这个东西打折吗？’员工说：‘不打折，你要是能把它扛回家，我就给你打骨折。’",
+    funnyIndex: 8,
+    publishTime: "2025-01-10"
+},
+{
+    id: 92,
+    title: "亲情的珍贵",
+    category: "人生感悟",
+    content: "亲情是世界上最无私的爱，它就像一条温暖的河流，流淌在我们的生命中。",
+    funnyIndex: 2,
+    publishTime: "2025-01-09"
+},
+{
+    id: 93,
+    title: "古代名言警句",
+    category: "名言佳句",
+    content: "穷则独善其身，达则兼济天下。",
+    funnyIndex: 1,
+    publishTime: "2025-01-08"
+},
+{
+    id: 94,
+    title: "热门网络词汇",
+    category: "网络热词",
+    content: "“凡尔赛文学”常用来形容那些表面上抱怨、实际上炫耀的行为。",
+    funnyIndex: 3,
+    publishTime: "2025-01-07"
+},
+{
+    id: 95,
+    title: "公园趣事",
+    category: "搞笑段子",
+    content: "公园里，一个人在放风筝，风筝挂在了树上，他说：‘这风筝是不是想在树上安家？’",
+    funnyIndex: 7,
+    publishTime: "2025-01-06"
+},
+{
+    id: 96,
+    title: "人生的意义",
+    category: "人生感悟",
+    content: "人生的意义不在于拥有多少财富和地位，而在于我们是否真正地活过，是否用心去感受过这个世界。",
+    funnyIndex: 2,
+    publishTime: "2025-01-05"
+},
+{
+    id: 97,
+    title: "经典古语名言",
+    category: "名言佳句",
+    content: "其身正，不令而行；其身不正，虽令不从。",
+    funnyIndex: 1,
+    publishTime: "2025-01-04"
+},
+{
+    id: 98,
+    title: "网络新词解读",
+    category: "网络热词",
+    content: "“emo 文学”指那些充满情绪化、伤感的文字表达。",
+    funnyIndex: 3,
+    publishTime: "2025-01-03"
+},
+{
+    id: 99,
+    title: "餐厅幽默",
+    category: "搞笑段子",
+    content: "顾客对服务员说：‘你们这里的菜怎么这么辣？’服务员说：‘因为我们厨师是四川的，他的热情都放进去了。’",
+    funnyIndex: 8,
+    publishTime: "2025-01-02"
+},
+ 
+{
+    id: 100,
+    title: "上班的无奈",
+    category: "搞笑段子",
+    content: "上班就像旧时代的婚姻，明明不幸福，还得长相厮守。",
+    funnyIndex: 6,
+    publishTime: "2025-02-01"
+},
+{
+    id: 101,
+    title: "吃货的世界",
+    category: "搞笑段子",
+    content: "吃货的最高境界：眼见为食。",
+    funnyIndex: 7,
+    publishTime: "2025-02-02"
+},
+{
+    id: 102,
+    title: "梦想的差距",
+    category: "人生感悟",
+    content: "梦想是美好的，现实是残酷的，中间的差距叫努力。",
+    funnyIndex: 2,
+    publishTime: "2025-02-03"
+},
+{
+    id: 103,
+    title: "摄影的真谛",
+    category: "名言佳句",
+    content: "摄影是用光的艺术表现来讲述故事。",
+    funnyIndex: 1,
+    publishTime: "2025-02-04"
+},
+{
+    id: 104,
+    title: "网购的纠结",
+    category: "搞笑段子",
+    content: "网购收到货后，觉得不喜欢又懒得退，可放着又占地方，这种纠结的心情，就像鸡肋。",
+    funnyIndex: 5,
+    publishTime: "2025-02-05"
+},
+{
+    id: 105,
+    title: "友谊的珍贵",
+    category: "人生感悟",
+    content: "真正的友谊不是锦上添花，而是雪中送炭。",
+    funnyIndex: 2,
+    publishTime: "2025-02-06"
+},
+{
+    id: 106,
+    title: "读书的意义",
+    category: "名言佳句",
+    content: "读书破万卷，下笔如有神。",
+    funnyIndex: 1,
+    publishTime: "2025-02-07"
+},
+{
+    id: 107,
+    title: "加班的苦",
+    category: "搞笑段子",
+    content: "加班累成狗，却没有狗粮，只有无尽的工作。",
+    funnyIndex: 6,
+    publishTime: "2025-02-08"
+},
+{
+    id: 108,
+    title: "运动的力量",
+    category: "人生感悟",
+    content: "运动是治愈一切的良药。",
+    funnyIndex: 2,
+    publishTime: "2025-02-09"
+},
+{
+    id: 109,
+    title: "科技的发展",
+    category: "名言佳句",
+    content: "科学技术是第一生产力。",
+    funnyIndex: 1,
+    publishTime: "2025-02-10"
+},
+{
+    id: 110,
+    title: "旅游的意义",
+    category: "人生感悟",
+    content: "旅游的意义不在于走了多少路，而在于遇见了多少人，经历了多少事。",
+    funnyIndex: 2,
+    publishTime: "2025-02-11"
+},
+{
+    id: 111,
+    title: "宠物的趣事",
+    category: "搞笑段子",
+    content: "我家的猫总是以为自己是家里的老大，连我都得听它的指挥。",
+    funnyIndex: 7,
+    publishTime: "2025-02-12"
+},
+{
+    id: 112,
+    title: "学习的方法",
+    category: "名言佳句",
+    content: "学而不思则罔，思而不学则殆。",
+    funnyIndex: 1,
+    publishTime: "2025-02-13"
+},
+{
+    id: 113,
+    title: "社交的烦恼",
+    category: "搞笑段子",
+    content: "社交就像一场戏，每个人都在扮演着不同的角色，而我总是那个跑龙套的。",
+    funnyIndex: 5,
+    publishTime: "2025-02-14"
+},
+{
+    id: 114,
+    title: "时间的宝贵",
+    category: "人生感悟",
+    content: "时间就像海绵里的水，只要愿挤，总还是有的。",
+    funnyIndex: 2,
+    publishTime: "2025-02-15"
+},
+{
+    id: 115,
+    title: "音乐的魅力",
+    category: "名言佳句",
+    content: "音乐是人类情感的语言。",
+    funnyIndex: 1,
+    publishTime: "2025-02-16"
+},
+{
+    id: 116,
+    title: "做饭的苦恼",
+    category: "搞笑段子",
+    content: "做饭就像一场冒险，有时候成功，有时候失败，失败的时候就像一场灾难。",
+    funnyIndex: 6,
+    publishTime: "2025-02-17"
+},
+{
+    id: 117,
+    title: "爱情的甜蜜",
+    category: "人生感悟",
+    content: "爱情就像一杯蜂蜜水，甜在嘴里，暖在心里。",
+    funnyIndex: 2,
+    publishTime: "2025-02-18"
+},
+{
+    id: 118,
+    title: "绘画的艺术",
+    category: "名言佳句",
+    content: "绘画是一门视觉艺术，它可以表达人们的思想和情感。",
+    funnyIndex: 1,
+    publishTime: "2025-02-19"
+},
+{
+    id: 119,
+    title: "起床的挣扎",
+    category: "搞笑段子",
+    content: "每天早上起床都要经历一场内心的挣扎，床就像一个巨大的磁铁，把我牢牢地吸住。",
+    funnyIndex: 7,
+    publishTime: "2025-02-20"
+},
+{
+    id: 120,
+    title: "工作的压力",
+    category: "人生感悟",
+    content: "工作的压力就像一座山，压得人喘不过气来。",
+    funnyIndex: 2,
+    publishTime: "2025-02-21"
+},
+{
+    id: 121,
+    title: "电影的魅力",
+    category: "名言佳句",
+    content: "电影是生活的镜子，它反映了社会的方方面面。",
+    funnyIndex: 1,
+    publishTime: "2025-02-22"
+},
+{
+    id: 122,
+    title: "逛街的乐趣",
+    category: "搞笑段子",
+    content: "逛街就像一场寻宝之旅，有时候能找到自己喜欢的东西，有时候却空手而归。",
+    funnyIndex: 5,
+    publishTime: "2025-02-23"
+},
+{
+    id: 123,
+    title: "读书的乐趣",
+    category: "人生感悟",
+    content: "读书就像一场旅行，带你领略不同的世界。",
+    funnyIndex: 2,
+    publishTime: "2025-02-24"
+},
+{
+    id: 124,
+    title: "摄影的乐趣",
+    category: "名言佳句",
+    content: "摄影是捕捉瞬间的艺术，它可以记录下生活中的美好瞬间。",
+    funnyIndex: 1,
+    publishTime: "2025-02-25"
+},
+{
+    id: 125,
+    title: "运动的乐趣",
+    category: "搞笑段子",
+    content: "运动就像一场游戏，让你在快乐中锻炼身体。",
+    funnyIndex: 6,
+    publishTime: "2025-02-26"
+},
+{
+    id: 126,
+    title: "旅游的趣事",
+    category: "搞笑段子",
+    content: "旅游的时候，总是会遇到一些有趣的人和事，让人忍俊不禁。",
+    funnyIndex: 7,
+    publishTime: "2025-02-27"
+},
+{
+    id: 127,
+    title: "学习的乐趣",
+    category: "人生感悟",
+    content: "学习就像一场探险，每一次的发现都会让你感到惊喜。",
+    funnyIndex: 2,
+    publishTime: "2025-02-28"
+},
+{
+    id: 128,
+    title: "社交的乐趣",
+    category: "搞笑段子",
+    content: "社交就像一场聚会，让你结识不同的人，分享不同的故事。",
+    funnyIndex: 5,
+    publishTime: "2025-03-01"
+},
+{
+    id: 129,
+    title: "做饭的乐趣",
+    category: "人生感悟",
+    content: "做饭就像一场创作，每一道菜都是一件艺术品。",
+    funnyIndex: 2,
+    publishTime: "2025-03-02"
+},
+{
+    id: 130,
+    title: "爱情的烦恼",
+    category: "搞笑段子",
+    content: "爱情就像一场战争，有时候你赢了，有时候你输了，输的时候就像一场噩梦。",
+    funnyIndex: 6,
+    publishTime: "2025-03-03"
+},
+{
+    id: 131,
+    title: "绘画的乐趣",
+    category: "名言佳句",
+    content: "绘画是一种表达情感的方式，它可以让你把内心的世界展现出来。",
+    funnyIndex: 1,
+    publishTime: "2025-03-04"
+},
+{
+    id: 132,
+    title: "起床的乐趣",
+    category: "搞笑段子",
+    content: "起床就像一场重生，让你迎接新的一天。",
+    funnyIndex: 7,
+    publishTime: "2025-03-05"
+},
+{
+    id: 133,
+    title: "工作的乐趣",
+    category: "人生感悟",
+    content: "工作就像一场挑战，每一次的成功都会让你感到满足。",
+    funnyIndex: 2,
+    publishTime: "2025-03-06"
+},
+{
+    id: 134,
+    title: "电影的乐趣",
+    category: "搞笑段子",
+    content: "看电影就像一场旅行，带你走进不同的世界，体验不同的人生。",
+    funnyIndex: 5,
+    publishTime: "2025-03-07"
+},
+{
+    id: 135,
+    title: "逛街的烦恼",
+    category: "人生感悟",
+    content: "逛街就像一场战斗，有时候你能找到自己喜欢的东西，有时候却被人群挤得喘不过气来。",
+    funnyIndex: 2,
+    publishTime: "2025-03-08"
+},
+{
+    id: 136,
+    title: "读书的烦恼",
+    category: "搞笑段子",
+    content: "读书就像一场马拉松，有时候你会感到疲惫，有时候你会想放弃。",
+    funnyIndex: 6,
+    publishTime: "2025-03-09"
+},
+{
+    id: 137,
+    title: "摄影的烦恼",
+    category: "名言佳句",
+    content: "摄影是一门技术活，有时候你想拍的东西却拍不出来，让人感到沮丧。",
+    funnyIndex: 1,
+    publishTime: "2025-03-10"
+},
+{
+    id: 138,
+    title: "运动的烦恼",
+    category: "搞笑段子",
+    content: "运动就像一场噩梦，有时候你会受伤，有时候你会感到疲惫不堪。",
+    funnyIndex: 7,
+    publishTime: "2025-03-11"
+},
+{
+    id: 139,
+    title: "旅游的烦恼",
+    category: "人生感悟",
+    content: "旅游就像一场冒险，有时候你会遇到一些不愉快的事情，让人感到失望。",
+    funnyIndex: 2,
+    publishTime: "2025-03-12"
+},
+{
+    id: 140,
+    title: "学习的烦恼",
+    category: "搞笑段子",
+    content: "学习就像一场游戏，有时候你会遇到一些难题，让人感到头疼。",
+    funnyIndex: 5,
+    publishTime: "2025-03-13"
+},
+{
+    id: 141,
+    title: "社交的烦恼",
+    category: "名言佳句",
+    content: "社交是一门艺术，有时候你会遇到一些不合拍的人，让人感到尴尬。",
+    funnyIndex: 1,
+    publishTime: "2025-03-14"
+},
+{
+    id: 142,
+    title: "做饭的烦恼",
+    category: "搞笑段子",
+    content: "做饭就像一场灾难，有时候你会把菜做糊，有时候你会把盐放多。",
+    funnyIndex: 6,
+    publishTime: "2025-03-15"
+},
+{
+    id: 143,
+    title: "爱情的甜蜜",
+    category: "人生感悟",
+    content: "爱情就像一杯美酒，越陈越香。",
+    funnyIndex: 2,
+    publishTime: "2025-03-16"
+},
+{
+    id: 144,
+    title: "绘画的烦恼",
+    category: "搞笑段子",
+    content: "绘画就像一场战斗，有时候你会画不出自己想要的效果，让人感到沮丧。",
+    funnyIndex: 7,
+    publishTime: "2025-03-17"
+},
+{
+    id: 145,
+    title: "起床的烦恼",
+    category: "人生感悟",
+    content: "起床就像一场战争，有时候你会战胜自己，有时候你会被自己打败。",
+    funnyIndex: 2,
+    publishTime: "2025-03-18"
+},
+{
+    id: 146,
+    title: "工作的烦恼",
+    category: "搞笑段子",
+    content: "工作就像一场噩梦，有时候你会遇到一些奇葩的同事，让人感到无语。",
+    funnyIndex: 5,
+    publishTime: "2025-03-19"
+},
+{
+    id: 147,
+    title: "电影的烦恼",
+    category: "名言佳句",
+    content: "电影是一门艺术，有时候你会看到一些烂片，让人感到失望。",
+    funnyIndex: 1,
+    publishTime: "2025-03-20"
+},
+{
+    id: 148,
+    title: "逛街的乐趣",
+    category: "搞笑段子",
+    content: "逛街就像一场寻宝之旅，有时候你会发现一些意想不到的好东西。",
+    funnyIndex: 6,
+    publishTime: "2025-03-21"
+},
+{
+    id: 149,
+    title: "读书的乐趣",
+    category: "人生感悟",
+    content: "读书就像一场心灵的旅行，带你走进不同的世界，感受不同的情感。",
+    funnyIndex: 2,
+    publishTime: "2025-03-22"
+},
+{
+    id: 150,
+    title: "摄影的乐趣",
+    category: "搞笑段子",
+    content: "摄影就像一场游戏，有时候你会拍到一些有趣的画面，让人忍俊不禁。",
+    funnyIndex: 7,
+    publishTime: "2025-03-23"
+},
+{
+    id: 151,
+    title: "运动的乐趣",
+    category: "人生感悟",
+    content: "运动就像一场盛宴，让你享受身体和心灵的双重愉悦。",
+    funnyIndex: 2,
+    publishTime: "2025-03-24"
+},
+ 
+{
+    id: 152,
+    title: "许仙的烦恼",
+    category: "搞笑段子",
+    content: "许仙碰到老婆发火，不知道怎么办，这时老婆给了他一本《菜谱》，许仙恍然大悟：“哦，原来要做法（罚）。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 153,
+    title: "螃蟹开会",
+    category: "搞笑段子",
+    content: "螃蟹出门不小心撞倒了泥鳅。泥鳅很生气：“你是不是瞎啊！”螃蟹很委屈地说：“不是啊，我是螃蟹！”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 154,
+    title: "四大名著新解",
+    category: "搞笑段子",
+    content: "老师问学生：“你知道四大名著吗？”学生答：“知道，《西游记》《红楼梦》《三国演义》《水浒传》。”老师又问：“那你知道四大名著里谁最有钱吗？”学生想了想：“铁扇公主，因为她有个‘宝扇’（宝善，即善于保管财物）。”",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 155,
+    title: "许仙的机智",
+    category: "搞笑段子",
+    content: "许仙被老婆逼问和哪个狐狸精厮混，许仙灵机一动：“娘子，你看，那不是狐狸，那是胡丽（狐狸）静（精）。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 156,
+    title: "螃蟹的梦想",
+    category: "搞笑段子",
+    content: "螃蟹做梦都想上高速，结果交警把它拦下了，交警问：“你为什么要上高速？”螃蟹说：“我要夹（驾）车！”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 157,
+    title: "四大名著之吃货版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最会做饭？”学生答：“唐僧，因为他取经（取经可以理解为取精，谐音梗，引申为做饭需要精心）。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 158,
+    title: "许仙的苦恼",
+    category: "搞笑段子",
+    content: "许仙被老婆逼得没办法，说：“娘子，你看，那不是蛇，那是佘诗（蛇）曼（慢）。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 159,
+    title: "螃蟹的困惑",
+    category: "搞笑段子",
+    content: "螃蟹去理发，理发师说：“你这发型没法理。”螃蟹很委屈：“为什么？”理发师说：“因为你这是夹（夹发）心（芯）发型。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 160,
+    title: "四大名著之运动版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最擅长运动？”学生答：“孙悟空，因为他会翻筋斗云，这可是高难度的运动。”",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 161,
+    title: "许仙的幽默",
+    category: "搞笑段子",
+    content: "许仙对老婆说：“娘子，你看，那不是蛇，那是蛇蝎（蛇谢）美（妹）。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 162,
+    title: "螃蟹的冒险",
+    category: "搞笑段子",
+    content: "螃蟹去爬山，爬到一半摔下来了，别人问它：“你没事吧？”螃蟹说：“没事，我就是有点夹（脚）软。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 163,
+    title: "四大名著之音乐版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最会唱歌？”学生答：“林黛玉，因为她总在葬花的时候哭哭啼啼，那声音就像唱歌一样。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 164,
+    title: "许仙的机智回应",
+    category: "搞笑段子",
+    content: "许仙被老婆质问：“你是不是又和哪个妖精在一起？”许仙说：“娘子，你看，那不是妖精，那是精（妖精）灵（玲）。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 165,
+    title: "螃蟹的求职",
+    category: "搞笑段子",
+    content: "螃蟹去面试，面试官问：“你有什么特长？”螃蟹说：“我会夹（加）班。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 166,
+    title: "四大名著之舞蹈版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最会跳舞？”学生答：“貂蝉，因为她能在吕布面前翩翩起舞，迷得吕布神魂颠倒。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 167,
+    title: "许仙的搞笑借口",
+    category: "搞笑段子",
+    content: "许仙晚归，老婆质问他去哪了，许仙说：“我去和几个朋友打蛇（社）球（球）了。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 168,
+    title: "螃蟹的烦恼",
+    category: "搞笑段子",
+    content: "螃蟹走路老是摔跤，朋友问它：“你为什么老是摔跤？”螃蟹说：“我也不想啊，我就是有点夹（脚）气（器）不顺畅。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 169,
+    title: "四大名著之绘画版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最会画画？”学生答：“吴道子，他要是在四大名著里，肯定能画出精彩的场景。（此处故意混淆，制造搞笑效果）”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 170,
+    title: "许仙的奇葩解释",
+    category: "搞笑段子",
+    content: "许仙身上有股奇怪的味道，老婆问他怎么回事，许仙说：“我刚和几个朋友去了蛇（舍）利（利）店（店），可能沾上味了。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 171,
+    title: "螃蟹的误会",
+    category: "搞笑段子",
+    content: "螃蟹去买鞋子，店员说没有它能穿的，螃蟹很生气：“为什么没有？”店员说：“你这夹（脚）太特别了。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 172,
+    title: "四大名著之摄影版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最会摄影？”学生答：“二郎神，他有三只眼，看东西更全面，拍出来的照片肯定更有层次感。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 173,
+    title: "许仙的糊涂话",
+    category: "搞笑段子",
+    content: "许仙对老婆说：“娘子，我今天看到一个人长得很像你，但是她是个蛇（舍）友（友）。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 174,
+    title: "螃蟹的尴尬",
+    category: "搞笑段子",
+    content: "螃蟹去参加舞会，别人都在跳舞，它却只能在一旁夹（夹）着（着）手（手）。",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 175,
+    title: "四大名著之书法版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁的书法最好？”学生答：“王羲之要是在四大名著里，那肯定是他的书法最好啦。（故意混淆，搞笑）”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 176,
+    title: "许仙的借口",
+    category: "搞笑段子",
+    content: "许仙被老婆发现身上有口红印，许仙说：“娘子，这是我和朋友去吃蛇（舍）果（果）沾到的。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 177,
+    title: "螃蟹的趣事",
+    category: "搞笑段子",
+    content: "螃蟹和朋友一起吃饭，它老是夹（夹）不到菜，朋友说：“你是不是手（夹）抖啊？”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 178,
+    title: "四大名著之武术版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最会武术？”学生答：“鲁智深，他倒拔垂杨柳，那力气可大了。”",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 179,
+    title: "许仙的搞笑对白",
+    category: "搞笑段子",
+    content: "许仙对老婆说：“娘子，我今天遇到一个人，他说他是蛇（舍）得（得）。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 180,
+    title: "螃蟹的无奈",
+    category: "搞笑段子",
+    content: "螃蟹去考试，监考老师说：“你这手（夹）怎么老乱动？”螃蟹说：“我控制不住啊。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 181,
+    title: "四大名著之科技版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最懂科技？”学生答：“诸葛亮，他会发明木牛流马，那可是高科技啊。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 182,
+    title: "许仙的奇葩理由",
+    category: "搞笑段子",
+    content: "许仙回家晚了，老婆生气地问他去哪了，许仙说：“我去参加蛇（社）交（交）活动了。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 183,
+    title: "螃蟹的糗事",
+    category: "搞笑段子",
+    content: "螃蟹去钓鱼，结果鱼都被它夹（夹）跑了。",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 184,
+    title: "四大名著之医学版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最懂医学？”学生答：“华佗，要是他在四大名著里，肯定能治好很多人的病。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 185,
+    title: "许仙的糊涂想法",
+    category: "搞笑段子",
+    content: "许仙对老婆说：“娘子，我想养条蛇（舍），这样我们就有伴了。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 186,
+    title: "螃蟹的尴尬时刻",
+    category: "搞笑段子",
+    content: "螃蟹去坐公交车，它老是夹（夹）到别人，别人都躲着它。",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 187,
+    title: "四大名著之教育版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最适合当老师？”学生答：“孔子要是在四大名著里，那肯定是个好老师。（故意混淆，搞笑）”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 188,
+    title: "许仙的搞笑言论",
+    category: "搞笑段子",
+    content: "许仙对老婆说：“娘子，我觉得蛇（舍）得（得）是一种美德。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 189,
+    title: "螃蟹的苦恼",
+    category: "搞笑段子",
+    content: "螃蟹去打篮球，它老是夹（夹）不住球。",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 190,
+    title: "四大名著之农业版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最懂农业？”学生答：“陶渊明要是在四大名著里，他肯定会教大家种地。（故意混淆，搞笑）”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 191,
+    title: "许仙的奇葩说法",
+    category: "搞笑段子",
+    content: "许仙对老婆说：“娘子，我今天看到一个蛇（舍）雕（雕）。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 192,
+    title: "螃蟹的趣事",
+    category: "搞笑段子",
+    content: "螃蟹去理发店，理发师说：“你这发型太难剪了，我怕被你夹（夹）到。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 193,
+    title: "四大名著之商业版",
+    category: "搞笑段子",
+    content: "老师问学生：“四大名著里谁最会做生意？”学生答：“胡雪岩要是在四大名著里，那肯定是个大商人。（故意混淆，搞笑）”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+ 
+{
+    id: 194,
+    title: "许仙给老婆买帽子",
+    category: "搞笑段子",
+    content: "许仙给老婆买了一顶帽子，白娘子戴上之后就死了，因为那是顶鸭（压）舌（蛇）帽。",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 195,
+    title: "螃蟹出门",
+    category: "搞笑段子",
+    content: "螃蟹出门不小心撞倒了泥鳅。泥鳅很生气地说：“你是不是瞎啊！”螃蟹很委屈地说：“不是啊，我是螃蟹！”,
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 196,
+    title: "四大名著之短信",
+    category: "搞笑段子",
+    content: "悟空发短信给铁扇公主：“嫂嫂，还我芭蕉扇！”铁扇公主回短信：“亲爱的，再送你一把，你嫂嫂我多着呢。”",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 197,
+    title: "钓鱼者的对话",
+    category: "搞笑段子",
+    content: "两个钓鱼者坐在一起，一个问另一个：“你钓到鱼了吗？”另一个回答：“没有，不过我钓到了一个鱼钩。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 198,
+    title: "许仙买药",
+    category: "搞笑段子",
+    content: "许仙遇见老婆后，吓得连忙到药房，抓起一把雄黄就喝，结果发现老婆并没有现原形，而是一旁的老板现原形了，因为老板是蛇。",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 199,
+    title: "螃蟹理发",
+    category: "搞笑段子",
+    content: "螃蟹去理发，理发师问：“你要理什么发型？”螃蟹说：“随便，只要不把我剪成秃子就行。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 200,
+    title: "悟空的烦恼",
+    category: "搞笑段子",
+    content: "悟空对唐僧说：“师傅，我看你像白骨精变的。”唐僧说：“你这猴头，怎么能这么说？”悟空说：“因为你没肉啊！”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 201,
+    title: "蜗牛的速度",
+    category: "搞笑段子",
+    content: "蜗牛妈妈背着小蜗牛在马路上散步，突然小蜗牛问：“妈妈，为什么我们从生下来，就要背负这个又硬又重的壳呢？”蜗牛妈妈说：“因为我们的身体没有骨骼的支撑，只能爬，又爬不快。所以要这个壳的保护！”小蜗牛又问：“毛虫姐姐没有骨头，也爬不快，为什么她却不用背这个又硬又重的壳呢？”蜗牛妈妈说：“因为毛虫姐姐能变成蝴蝶，天空会保护她啊。”小蜗牛又问：“可是蚯蚓弟弟也没骨头爬不快，也不会变成蝴蝶，他为什么不背这个又硬又重的壳呢？”蜗牛妈妈说：“因为蚯蚓弟弟会钻土, 大地会保护他啊。”小蜗牛哭了起来：“我们好可怜，天空不保护，大地也不保护。”蜗牛妈妈安慰他：“所以我们有壳啊！”小蜗牛哭着说：“那万一碰上下雨怎么办？”蜗牛妈妈说：“那就赶紧钻到壳里，不要出声！”小蜗牛说：“可是雨越下越大，把我们都淹没了怎么办？”蜗牛妈妈说：“那我们就一起唱《蜗牛与黄鹂鸟》。”",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 202,
+    title: "鱼的愿望",
+    category: "搞笑段子",
+    content: "鱼说：“我时时刻刻把眼睁开是为了在你身边不舍离开。”水说：“我终日流淌不知疲倦是为了围绕你，好好把你抱紧。”锅说：“都他妈快熟了，还这么多废话。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 203,
+    title: "许仙的后悔",
+    category: "搞笑段子",
+    content: "许仙发薪后，给老婆买了一帽子，白娘子戴上之后就死了，因为那是顶鸭（压）舌（蛇）帽。许仙非常后悔，于是来到药店，老板问他：“你要什么药？”许仙说：“我要后悔药！”老板说：“我们这没有后悔药，只有避孕药。”许仙说：“避孕药？我要那玩意儿干嘛？”老板说：“你要是早来买这个，就不会后悔了！”",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 204,
+    title: "螃蟹的鞋子",
+    category: "搞笑段子",
+    content: "螃蟹出门散步不小心撞倒了泥鳅。泥鳅很生气：“你是不是瞎啊！”螃蟹很委屈地说：“不是啊，我是螃蟹！”泥鳅说：“你还狡辩，你没穿鞋，怎么会踩到我？”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 205,
+    title: "悟空的约会",
+    category: "搞笑段子",
+    content: "悟空和铁扇公主约会，铁扇公主说：“亲爱的，我们去看电影吧！”悟空说：“好啊，不过你得把扇子收起来，不然电影院的空调都不用开了。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 206,
+    title: "蜗牛的理想",
+    category: "搞笑段子",
+    content: "蜗牛说：“我要一步一步往上爬，总有一天我会到达金字塔顶。”老鹰听了说：“你慢慢爬吧，我在塔顶等你，顺便晒晒太阳。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 207,
+    title: "鱼的聊天",
+    category: "搞笑段子",
+    content: "两条鱼在水里游泳，突然碰到一条死鱼从上游漂下来。一条鱼对另一条鱼说：“你看，水的质量越来越差了，死鱼都漂起来了。”另一条鱼说：“胡说，这是我们同类在享受日光浴。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 208,
+    title: "许仙的新发现",
+    category: "搞笑段子",
+    content: "许仙发现老婆是蛇精后，每天都给她买很多鸡蛋吃，白娘子很奇怪，问他为什么。许仙说：“吃蛋补蛋，希望你能下蛋，这样我们就有小蛇了。”",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 209,
+    title: "螃蟹的疑惑",
+    category: "搞笑段子",
+    content: "螃蟹在走路时遇到了蜈蚣，螃蟹问蜈蚣：“你走路那么多脚，你是怎么协调的？”蜈蚣想了想说：“我从来没想过这个问题，现在我想一下……”然后蜈蚣就不会走路了。",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 210,
+    title: "悟空的尴尬",
+    category: "搞笑段子",
+    content: "悟空去参加聚会，大家都在玩成语接龙。轮到悟空时，他说：“大闹天宫。”然后就没人接得下去了。",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 211,
+    title: "蜗牛的比赛",
+    category: "搞笑段子",
+    content: "蜗牛和乌龟比赛跑步，蜗牛跑了一半，回头一看，乌龟不见了，于是蜗牛开始往回跑，结果一到家就看到乌龟在门口等着它，乌龟说：“你还知道回来啊，我都等你半天了。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 212,
+    title: "鱼的旅行",
+    category: "搞笑段子",
+    content: "鱼想去旅行，于是它对水说：“我要去远方看看。”水说：“你去吧，不过你要记得，不管你走到哪里，都要记得回来，因为我离不开你。”鱼说：“放心吧，我会回来的。”结果鱼刚游出一步，就发现自己离不开水了。",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 213,
+    title: "许仙的苦恼",
+    category: "搞笑段子",
+    content: "许仙和白娘子结婚后，许仙总是觉得老婆太能吃了，有一天许仙终于忍不住了，对白娘子说：“你能不能少吃一点，我们家都快被你吃穷了。”白娘子说：“我也不想吃这么多啊，可是我一闻到肉味就控制不住自己。”许仙说：“那你以后别闻肉味不就行了。”白娘子说：“那我怎么活啊，我是蛇，我要吃肉的。”许仙说：“那你能不能吃点别的，比如蔬菜。”白娘子说：“我吃蔬菜会过敏的。”许仙说：“那你能不能少吃一点肉。”白娘子说：“那你给我找个不吃肉的蛇来看看。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 214,
+    title: "螃蟹的选择",
+    category: "搞笑段子",
+    content: "螃蟹在餐厅吃饭，服务员问它：“先生，你要清蒸还是红烧？”螃蟹说：“我要回去。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 215,
+    title: "悟空的烦恼",
+    category: "搞笑段子",
+    content: "悟空对唐僧说：“师傅，我想去看看外面的世界。”唐僧说：“你这猴头，你要是走了，谁来保护我？”悟空说：“那我把金箍棒留给你，你拿着它就不怕妖怪了。”唐僧说：“我拿不动啊。”悟空说：“那我给你变小一点。”唐僧说：“那也不行，我怕我一不小心把它弄丢了。”悟空说：“那我给你刻上你的名字。”唐僧说：“那也不行，万一被妖怪抢走了，他们拿着我的金箍棒去冒充我怎么办？”悟空说：“那我没办法了。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 216,
+    title: "蜗牛的约会",
+    category: "搞笑段子",
+    content: "蜗牛和蚯蚓约好一起去散步，蜗牛等了好久都不见蚯蚓来，于是蜗牛打电话给蚯蚓，蚯蚓说：“我在路上，可是我迷路了，因为我没有脚，不知道该往哪里走。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 217,
+    title: "鱼的梦想",
+    category: "搞笑段子",
+    content: "鱼对鸟说：“我好羡慕你，可以在天空中自由飞翔。”鸟说：“我也羡慕你，可以在水里自由游弋。”鱼说：“那我们换一下吧。”鸟说：“好啊。”于是鱼变成了鸟，鸟变成了鱼。结果鱼变成的鸟飞了一会儿就掉下来摔死了，鸟变成的鱼游了一会儿就淹死了。",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+{
+    id: 218,
+    title: "许仙的奇遇",
+    category: "搞笑段子",
+    content: "许仙走在路上，突然遇到了一个道士，道士对他说：“你身上有妖气，你最近是不是遇到了什么不干净的东西？”许仙说：“没有啊，我最近一切都很正常。”道士说：“你别骗我了，我能感觉到你身上的妖气很重。”许仙说：“那你能不能帮我把妖气去掉？”道士说：“可以，不过你得给我一百两银子。”许仙说：“我没有那么多钱。”道士说：“那我也没办法了。”许仙说：“那你能不能便宜一点？”道士说：“五十两怎么样？”许仙说：“还是太贵了。”道士说：“那你就等着被妖怪吃掉吧。”许仙说：“那我回家问问我老婆，看她愿不愿意给你钱。”道士说：“你老婆？你老婆是谁？”许仙说：“我老婆是白娘子。”道士一听，吓得转身就跑。",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 219,
+    title: "螃蟹的旅行",
+    category: "搞笑段子",
+    content: "螃蟹想去旅行，它收拾好行李准备出发，可是它发现自己走得太慢了，于是它决定坐火车。它来到火车站，对售票员说：“我要一张票。”售票员说：“你要去哪里？”螃蟹说：“我要去海边。”售票员说：“对不起，你不能坐火车，因为你是横着走的。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 220,
+    title: "悟空的考试",
+    category: "搞笑段子",
+    content: "悟空参加考试，监考老师对他说：“你不能使用金箍棒作弊。”悟空说：“我没有作弊，我只是把它放在桌子上，它自己会变大变小，我也控制不了。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 221,
+    title: "蜗牛的烦恼",
+    category: "搞笑段子",
+    content: "蜗牛对朋友说：“我好烦恼，我走得太慢了，什么都做不了。”朋友说：“你可以慢慢做啊，不要着急。”蜗牛说：“可是我连慢慢做都来不及啊，等我做完，别人都已经做完好久了。”",
+    funnyIndex: 6,
+    publishTime: "2025-02-19"
+},
+{
+    id: 222,
+    title: "鱼的困惑",
+    category: "搞笑段子",
+    content: "鱼对水说：“我不明白，为什么人类总是说我们是冷血动物？”水说：“也许是因为我们生活在水里，他们觉得我们没有感情。”鱼说：“可是我们也有感情啊，我们会互相照顾，会一起玩耍。”水说：“那他们可能是不了解我们吧。”",
+    funnyIndex: 7,
+    publishTime: "2025-02-19"
+},
+{
+    id: 223,
+    title: "许仙的想法",
+    category: "搞笑段子",
+    content: "许仙对老婆说：“老婆，我觉得我们应该生个孩子。”白娘子说：“好啊，可是我们是蛇和人，生出来的孩子会是什么样子呢？”许仙说：“管他是什么样子，只要是我们的孩子就好。”白娘子说：“那我们给孩子取什么名字呢？”许仙说：“就叫许蛇吧。”白娘子说：“这个名字不好听，我们再想想。”",
+    funnyIndex: 8,
+    publishTime: "2025-02-19"
+},
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ];
+
+        // 按发布时间降序排序
+        jokes.sort((a, b) => new Date(b.publishTime) - new Date(a.publishTime));
+
+        // 获取 DOM 元素
+        const jokeContainer = document.getElementById('jokeContainer');
+        const searchInput = document.getElementById('searchInput');
+        const categorySelect = document.getElementById('categorySelect');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 初始显示数量和每次加载数量
+        let initialCount = 10;
+        let loadCount = 5;
+        let currentIndex = initialCount;
+
+        // 将搞笑指数转换为星星表示
+        function getStarRating(rating) {
+            const maxRating = 5;
+            const filledStars = Math.min(Math.round(rating / 2), maxRating);
+            const emptyStars = maxRating - filledStars;
+            let starString = '';
+            for (let i = 0; i < filledStars; i++) {
+                starString += '<span class="star">★</span>';
+            }
+            for (let i = 0; i < emptyStars; i++) {
+                starString += '☆';
+            }
+            return starString;
+        }
+
+
+ 
+
+
+
+
+
+
+
+        // 显示段子列表
+        function displayJokes(filteredJokes, startIndex, endIndex) {
+            for (let i = startIndex; i < endIndex && i < filteredJokes.length; i++) {
+                const joke = filteredJokes[i];
+                const item = document.createElement('div');
+                item.classList.add('item');
+                item.setAttribute('data-category', joke.category);
+                const starRating = getStarRating(joke.funnyIndex);
+                item.innerHTML = `
+                    <p>序号: ${i + 1}</p>
+                    <p>标题: <strong>${joke.title}</strong></p>
+                    <p>分类: ${joke.category}</p>
+                    <p>内容: ${joke.content}</p>
+                    <p>搞笑指数: ${starRating}</p>
+                    <p>发布时间: ${joke.publishTime}</p>
+                `;
+                jokeContainer.appendChild(item);
+            }
+        }
+
+        // 搜索和分类过滤
+        function filterJokes() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categorySelect.value;
+            let filteredJokes = jokes;
+            if (selectedCategory!== 'all') {
+                filteredJokes = filteredJokes.filter(joke => joke.category === selectedCategory);
+            }
+            if (searchTerm) {
+                filteredJokes = filteredJokes.filter(joke =>
+                    joke.title.toLowerCase().includes(searchTerm) ||
+                    joke.content.toLowerCase().includes(searchTerm)
+                );
+            }
+            jokeContainer.innerHTML = '';
+            currentIndex = initialCount;
+            displayJokes(filteredJokes, 0, initialCount);
+        }
+
+        // 加载更多段子
+        function loadMoreJokes() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categorySelect.value;
+            let filteredJokes = jokes;
+            if (selectedCategory!== 'all') {
+                filteredJokes = filteredJokes.filter(joke => joke.category === selectedCategory);
+            }
+            if (searchTerm) {
+                filteredJokes = filteredJokes.filter(joke =>
+                    joke.title.toLowerCase().includes(searchTerm) ||
+                    joke.content.toLowerCase().includes(searchTerm)
+                );
+            }
+            const endIndex = currentIndex + loadCount;
+            displayJokes(filteredJokes, currentIndex, endIndex);
+            currentIndex = endIndex;
+        }
+
+        // 初始显示段子列表
+        displayJokes(jokes, 0, initialCount);
+
+        // 监听搜索框和分类选择的变化
+        searchInput.addEventListener('input', filterJokes);
+        categorySelect.addEventListener('change', filterJokes);
+
+        // 监听滚动事件，当接近页面底部时加载更多段子
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
+                loadMoreJokes();
+            }
+        });
+
+        // 回到顶部按钮逻辑
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        };
+
+        backToTopBtn.addEventListener('click', function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
