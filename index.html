@@ -1,55 +1,35 @@
-<!DOCTYPE html>
+             <!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>段子网</title>
-
-
-
-<!-- 网站描述，简要概括网站内容 -->
-<meta name="description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
-<!-- 关键词，利于搜索引擎识别网站主题 -->
-<meta name="keywords" content="段子网, 搞笑段子, 人生感悟, 名言佳句, 网络热词">
-<!-- 搜索引擎索引规则，all 表示允许搜索引擎索引所有页面 -->
-<meta name="robots" content="all">
-<!-- 作者信息 -->
-<meta name="author" content="网站作者名称">
-<!-- 页面语言 -->
-<meta name="language" content="zh-CN">
-<!-- 网页重定向和规范链接（如果有多个版本页面） -->
-<link rel="canonical" href="https://duanzi.xnworld.com/index.html">
-<!-- 开放图谱协议，用于社交媒体分享显示 -->
-<meta property="og:title" content="段子网">
-<meta property="og:description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
-<meta property="og:url" content="https://duanzi.xnworld.com/index.html">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://duanzi.xnworld.com/path/to/your/image.jpg">
-<!-- Twitter 卡片，用于 Twitter 分享显示 -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="段子网">
-<meta name="twitter:description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
-<meta name="twitter:image" content="https://duanzi.xnworld.com/path/to/your/image.jpg">
-
-
-
-
-
-
-
+    <meta name="description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
+    <meta name="keywords" content="段子网, 搞笑段子, 人生感悟, 名言佳句, 网络热词">
+    <meta name="robots" content="all">
+    <meta name="author" content="网站作者名称">
+    <meta name="language" content="zh-CN">
+    <link rel="canonical" href="https://duanzi.xnworld.com/index.html">
+    <meta property="og:title" content="段子网">
+    <meta property="og:description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
+    <meta property="og:url" content="https://duanzi.xnworld.com/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://duanzi.xnworld.com/path/to/your/image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="段子网">
+    <meta name="twitter:description" content="段子网，汇聚搞笑段子、人生感悟、名言佳句、网络热词，给你丰富的段子阅读体验。">
+    <meta name="twitter:image" content="https://duanzi.xnworld.com/path/to/your/image.jpg">
 
     <style>
-        /* 全局样式 */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Microsoft YaHei', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
             color: #333;
         }
 
-        /* 标题样式 */
         h1 {
             text-align: center;
             color: #007BFF;
@@ -57,19 +37,27 @@
             padding: 20px;
             margin: 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
         }
 
-        /* 搜索框和分类选择框容器样式 */
-       .search-and-filter {
+        h1 a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        h1 a:hover {
+            text-decoration: none;
+            color: #0056b3;
+        }
+
+        .search-and-filter {
             display: flex;
             flex-direction: column;
             padding: 20px;
             gap: 15px;
         }
 
-        /* 搜索框和分类选择框通用样式 */
-        input,
-        select {
+        input, select {
             padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -77,34 +65,30 @@
             transition: border-color 0.3s ease;
         }
 
-        input:focus,
-        select:focus {
+        input:focus, select:focus {
             border-color: #007BFF;
             outline: none;
         }
 
-        /* 瀑布流容器样式 */
-       .masonry {
+        .masonry {
             column-count: 1;
             column-gap: 20px;
             padding: 20px;
         }
 
-        /* 不同屏幕宽度下瀑布流列数调整 */
         @media (min-width: 768px) {
-           .masonry {
+            .masonry {
                 column-count: 2;
             }
         }
 
         @media (min-width: 1024px) {
-           .masonry {
+            .masonry {
                 column-count: 3;
             }
         }
 
-        /* 单个段子项样式 */
-       .masonry .item {
+        .masonry .item {
             display: inline-block;
             width: 100%;
             background-color: #fff;
@@ -114,109 +98,57 @@
             margin-bottom: 20px;
             box-sizing: border-box;
             break-inside: avoid;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
-       .masonry .item:hover {
+        .masonry .item:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* 不同分类段子项的颜色区分 */
-       .masonry .item[data-category="搞笑段子"] {
+        .masonry .item[data-category="搞笑段子"] {
             border-left: 5px solid #FFC107;
         }
 
-       .masonry .item[data-category="人生感悟"] {
+        .masonry .item[data-category="人生感悟"] {
             border-left: 5px solid #28A745;
         }
 
-       .masonry .item[data-category="名言佳句"] {
+        .masonry .item[data-category="名言佳句"] {
             border-left: 5px solid #17A2B8;
         }
 
-       .masonry .item[data-category="网络热词"] {
+        .masonry .item[data-category="网络热词"] {
             border-left: 5px solid #DC3545;
         }
 
-        /* 段子项内文字样式优化 */
-       .masonry .item p {
+        .masonry .item p {
             margin: 8px 0;
             line-height: 1.5;
             font-size: 14px;
         }
 
-       .masonry .item p strong {
+        .masonry .item p strong {
             color: #007BFF;
             font-size: 16px;
         }
 
-
-
-input::placeholder {
-    transition: color 0.3s ease;
-}
-
-input:focus::placeholder {
-    color: #aaa;
-}
-
-
-
-.masonry .item {
-    /* 其他样式保持不变 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(0, 0, 0, 0.05);
-}
-
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-h1 {
-    /* 其他样式保持不变 */
-    animation: fadeIn 0.8s ease-out;
-}
-
-
-
-body {
-    /* 其他样式保持不变 */
-    background: linear-gradient(135deg, #f4f4f9 0%, #e0e0e0 100%);
-}
-
-
-
-
-
-
-
-
-       .masonry .item p:nth-child(1) {
+        .masonry .item p:nth-child(1) {
             font-weight: bold;
             color: #666;
         }
 
-       .masonry .item p:nth-child(3) {
-            font-style: italic;
+        .masonry .item p:nth-child(3) {
+            font-style: normal;
             color: #999;
         }
 
-        /* 星星样式 */
-       .star {
+        .star {
             color: gold;
         }
 
-        /* 回到顶部按钮样式 */
         #backToTopBtn {
             display: none;
             position: fixed;
@@ -239,55 +171,76 @@ body {
             background-color: #0056b3;
         }
 
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-/* 优化段子内容样式 */
-.masonry .item p:nth-child(4) { /* 假设内容是第 4 个 p 元素 */
-    font-size: 15px;
-    line-height: 1.7;
-    color: #555;
-}
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            color: #333;
+        }
 
+        .modal-content h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #007BFF; /* 蓝色标题 */
+            background-color: #f9f9f9; /* 浅色背景 */
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
 
+        .modal-content p {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #555;
+        }
 
+        .modal-content p strong {
+            font-weight: bold;
+            color: #007BFF; /* 字段名改为蓝色 */
+            letter-spacing: 0.5px; /* 字体间距 */
+        }
 
+        .modal-content .star {
+            color: gold;
+        }
 
-
-
-
-/* 添加到 <style> 标签中 */
-.smile-icon {
-    font-size: 24px; /* 图标大小 */
-    margin-right: 10px; /* 图标与文字的间距 */
-    vertical-align: middle; /* 垂直居中对齐 */
-}
-
-h1 a {
-    text-decoration: none; /* 去掉下划线 */
-    color: #007BFF; /* 颜色 */
-    display: inline-block; /* 使整个标题可以点击 */
-}
-
-h1 a:hover {
-  /*   text-decoration: underline; 鼠标悬停时显示下划线 */
-}
-
-
-
-
-
-
-
-
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
 <body>
     <h1>
-    <a href="http://duanzi.xnworld.com/" title="返回首页">
-        <span class="smile-icon">😊</span> 段子网
-    </a>
-</h1>
-    <!-- 搜索框和分类选择框容器 -->
+        <a href="http://duanzi.xnworld.com/" title="返回首页">
+            <span class="smile-icon">😊</span> 段子网
+        </a>
+    </h1>
     <div class="search-and-filter">
         <input type="text" id="searchInput" placeholder="搜索段子...">
         <select id="categorySelect">
@@ -295,90 +248,30 @@ h1 a:hover {
             <option value="搞笑段子">搞笑段子</option>
             <option value="人生感悟">人生感悟</option>
             <option value="名言佳句">名言佳句</option>
-            <option value="网络热词">网络热词</option>
-        </select>
-
  
 
 
+
+
+             <option value="网络热词">网络热词</option>
+        </select>
     </div>
 
-
-
- 
-
-<script>
-
-
-
-
-
-
-
-
-
-
-let isLoading = false;
-
-// 加载更多段子
-async function loadMoreJokes() {
-    if (isLoading) return;
-    isLoading = true;
-    loadingIndicator.style.display = 'block';
-    await new Promise(resolve => setTimeout(resolve, 1000)); // 模拟加载延迟
-    const searchTerm = searchInput.value.toLowerCase();
-    const selectedCategory = categorySelect.value;
-    let filteredJokes = jokes;
-    if (selectedCategory!== 'all') {
-        filteredJokes = filteredJokes.filter(joke => joke.category === selectedCategory);
-    }
-    if (searchTerm) {
-        filteredJokes = filteredJokes.filter(joke =>
-            joke.title.toLowerCase().includes(searchTerm) ||
-            joke.content.toLowerCase().includes(searchTerm)
-        );
-    }
-    const endIndex = currentIndex + loadCount;
-    if (endIndex <= filteredJokes.length) {
-        for (let i = currentIndex; i < endIndex; i++) {
-            const joke = filteredJokes[i];
-            const item = document.createElement('div');
-            item.classList.add('item');
-            item.setAttribute('data-category', joke.category);
-            const starRating = getStarRating(joke.funnyIndex);
-            item.innerHTML = `
-                <p>序号: ${i + 1}</p>
-                <p>标题: <strong>${joke.title}</strong></p>
-                <p>分类: ${joke.category}</p>
-                <p>内容: ${joke.content}</p>
-                <p>搞笑指数: ${starRating}</p>
-                <p>发布时间: ${joke.publishTime}</p>
-            `;
-            jokeContainer.appendChild(item);
-        }
-        currentIndex = endIndex;
-    }
-    loadingIndicator.style.display = 'none';
-    isLoading = false;
-}
-
-
-</script>
-
-
-
-
-
-
-
-    <!-- 瀑布流容器 -->
     <div class="masonry" id="jokeContainer"></div>
-    <!-- 回到顶部按钮 -->
     <button id="backToTopBtn" title="回到顶部">↑</button>
+
+    <!-- 模态框 -->
+    <div class="modal" id="modal">
+        <div class="modal-content" id="modalContent">
+            <h2 id="modalTitle"></h2>
+            <p><strong>内容：</strong><span id="modalContentText"></span></p>
+            <p><strong>搞笑指数：</strong><span id="modalFunnyIndex"></span></p>
+        </div>
+    </div>
+
     <script>
-        // 15 个样本数据
         const jokes = [
-            {
+   {
                 id: 1,
                 title: "办公室的幽默",
                 category: "搞笑段子",
@@ -2182,32 +2075,26 @@ async function loadMoreJokes() {
 
 
 
-
-
-
-
-
-
-
-
-
+            
+            // 可以继续添加更多段子
         ];
 
-        // 按发布时间降序排序
         jokes.sort((a, b) => new Date(b.publishTime) - new Date(a.publishTime));
 
-        // 获取 DOM 元素
         const jokeContainer = document.getElementById('jokeContainer');
         const searchInput = document.getElementById('searchInput');
         const categorySelect = document.getElementById('categorySelect');
         const backToTopBtn = document.getElementById('backToTopBtn');
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modalContent');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContentText = document.getElementById('modalContentText');
+        const modalFunnyIndex = document.getElementById('modalFunnyIndex');
 
-        // 初始显示数量和每次加载数量
         let initialCount = 10;
         let loadCount = 5;
         let currentIndex = initialCount;
 
-        // 将搞笑指数转换为星星表示
         function getStarRating(rating) {
             const maxRating = 5;
             const filledStars = Math.min(Math.round(rating / 2), maxRating);
@@ -2222,16 +2109,6 @@ async function loadMoreJokes() {
             return starString;
         }
 
-
- 
-
-
-
-
-
-
-
-        // 显示段子列表
         function displayJokes(filteredJokes, startIndex, endIndex) {
             for (let i = startIndex; i < endIndex && i < filteredJokes.length; i++) {
                 const joke = filteredJokes[i];
@@ -2247,16 +2124,16 @@ async function loadMoreJokes() {
                     <p>搞笑指数: ${starRating}</p>
                     <p>发布时间: ${joke.publishTime}</p>
                 `;
+                item.addEventListener('click', () => showModal(joke));
                 jokeContainer.appendChild(item);
             }
         }
 
-        // 搜索和分类过滤
         function filterJokes() {
             const searchTerm = searchInput.value.toLowerCase();
             const selectedCategory = categorySelect.value;
             let filteredJokes = jokes;
-            if (selectedCategory!== 'all') {
+            if (selectedCategory !== 'all') {
                 filteredJokes = filteredJokes.filter(joke => joke.category === selectedCategory);
             }
             if (searchTerm) {
@@ -2270,12 +2147,11 @@ async function loadMoreJokes() {
             displayJokes(filteredJokes, 0, initialCount);
         }
 
-        // 加载更多段子
         function loadMoreJokes() {
             const searchTerm = searchInput.value.toLowerCase();
             const selectedCategory = categorySelect.value;
             let filteredJokes = jokes;
-            if (selectedCategory!== 'all') {
+            if (selectedCategory !== 'all') {
                 filteredJokes = filteredJokes.filter(joke => joke.category === selectedCategory);
             }
             if (searchTerm) {
@@ -2289,21 +2165,30 @@ async function loadMoreJokes() {
             currentIndex = endIndex;
         }
 
-        // 初始显示段子列表
+        function showModal(joke) {
+            modalTitle.textContent = joke.title;
+            modalContentText.textContent = joke.content;
+            modalFunnyIndex.innerHTML = getStarRating(joke.funnyIndex);
+            modal.style.display = 'flex';
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
         displayJokes(jokes, 0, initialCount);
 
-        // 监听搜索框和分类选择的变化
         searchInput.addEventListener('input', filterJokes);
         categorySelect.addEventListener('change', filterJokes);
 
-        // 监听滚动事件，当接近页面底部时加载更多段子
         window.addEventListener('scroll', () => {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
                 loadMoreJokes();
             }
         });
 
-        // 回到顶部按钮逻辑
         window.onscroll = function () {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 backToTopBtn.style.display = 'block';
@@ -2316,46 +2201,7 @@ async function loadMoreJokes() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         });
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
-
-
-
-
-
-<!--     百度统计代码     -->
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?a137f02a146bede54811e2b14c37ef8f";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-
-
-
-
-
-<!--     谷歌广告代码     -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5624361140780293"
-     crossorigin="anonymous"></script>
-
-
 </body>
 
 </html>
