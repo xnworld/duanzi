@@ -1,4 +1,4 @@
-             <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
@@ -22,12 +22,16 @@
     <meta name="twitter:image" content="https://duanzi.xnworld.com/path/to/your/image.jpg">
 
     <style>
+        /* 全局样式修改为微软雅黑字体并去除字体颜色 */
+        * {
+            font-family: 微软雅黑, "Microsoft YaHei", sans-serif;
+            color: #333; /* 统一字体颜色 */
+        }
+
         body {
-            font-family: 'Microsoft YaHei', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
-            color: #333;
         }
 
         h1 {
@@ -55,6 +59,18 @@
             flex-direction: column;
             padding: 20px;
             gap: 15px;
+            position: relative; /* 为数量提示增加相对定位 */
+        }
+
+        /* 动态显示段子数量 */
+        .joke-count {
+            position: absolute;
+            right: 0;
+            bottom: -30px;
+            background-color: #f4f4f9;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border-left: 3px solid #007BFF;
         }
 
         input, select {
@@ -125,8 +141,8 @@
         }
 
         .masonry .item p {
-            margin: 8px 0;
-            line-height: 1.5;
+            margin: 12px 0; /* 增加段落间距 */
+            line-height: 1.6;
             font-size: 14px;
         }
 
@@ -171,6 +187,7 @@
             background-color: #0056b3;
         }
 
+        /* 修改后的模态框样式 */
         .modal {
             display: none;
             position: fixed;
@@ -186,10 +203,10 @@
 
         .modal-content {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 30px; /* 加大内边距 */
+            border-radius: 15px; /* 修改圆角大小 */
             width: 80%;
-            max-width: 500px;
+            max-width: 700px; /* 增加最大宽度 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             font-size: 18px;
             color: #333;
@@ -199,10 +216,9 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #007BFF; /* 蓝色标题 */
-            background-color: #f9f9f9; /* 浅色背景 */
-            padding: 10px;
-            border-radius: 5px;
+            border: none; /* 去除标题背景颜色 */
+            padding: 0;
+            background: none;
             text-align: center;
         }
 
@@ -213,8 +229,7 @@
         }
 
         .modal-content p strong {
-            font-weight: bold;
-            color: #007BFF; /* 字段名改为蓝色 */
+            font-weight: bold; /* 字段名改为加粗 */
             letter-spacing: 0.5px; /* 字体间距 */
         }
 
@@ -245,13 +260,6 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
-
-
-
-
-
-
-
 </head>
 
 <body>
@@ -267,13 +275,10 @@
             <option value="搞笑段子">搞笑段子</option>
             <option value="人生感悟">人生感悟</option>
             <option value="名言佳句">名言佳句</option>
- 
-
-
-
-
-             <option value="网络热词">网络热词</option>
+            <option value="网络热词">网络热词</option>
         </select>
+        <!-- 显示段子数量 -->
+        <div class="joke-count">段子数量：0</div>
     </div>
 
     <div class="masonry" id="jokeContainer"></div>
@@ -290,7 +295,8 @@
 
     <script>
         const jokes = [
-   {
+   
+{
                 id: 1,
                 title: "办公室的幽默",
                 category: "搞笑段子",
@@ -2426,6 +2432,441 @@
     publishTime: "2024-11-20"
 },
  
+{
+    id: 267,
+    title: "在家剥罗森呢大娘",
+    category: "网络热词",
+    content: "剥罗森是河南方言，意思是剥花生，这句话就是在家剥花生。",
+    funnyIndex: 3,
+    publishTime: "2025-03-25"
+},
+{
+    id: 268,
+    title: "铁粉老6",
+    category: "网络热词",
+    content: "源自游戏《CSGO》，指那些游离团队之外、喜欢阴人、藏匿在隐蔽地方准备阴险出招的玩家。",
+    funnyIndex: 3,
+    publishTime: "2025-03-25"
+},
+{
+    id: 269,
+    title: "爆改",
+    category: "网络热词",
+    content: "原意是形容对事物的较大改动，现在网络上已成为一种展示个人风格和审美的方式。",
+    funnyIndex: 3,
+    publishTime: "2025-03-25"
+},
+{
+    id: 270,
+    title: "不响最大",
+    category: "网络热词",
+    content: "源自王家卫导演的《繁花》，意思是不回应、不发声、不反对也不赞同，用沉默来表达。",
+    funnyIndex: 3,
+    publishTime: "2025-03-25"
+},
+{
+    id: 271,
+    title: "舔狗",
+    category: "网络热词",
+    content: "像狗一样用舔来表达对主人的忠诚，现在用来形容那些对感情很忠诚并且不断辛勤耕耘的人。",
+    funnyIndex: 3,
+    publishTime: "2025-03-25"
+},
+{
+    id: 272,
+    title: "m3",
+    category: "网络热词",
+    content: "一种美式潮男网络用语，来源于抖音短视频博主口头禅。",
+    funnyIndex: 3,
+    publishTime: "2025-03-25"
+},
+{
+    id: 273,
+    title: "百因必有果，你的报应就是我",
+    category: "网络热词",
+    content: "源自网红韩美娟的一句话，寓意喜欢做坏事的人遇到了比他更厉害的人。",
+    funnyIndex: 3,
+    publishTime: "2025-03-25"
+},
+
+{
+    id: 274,
+    title: "夺笋哪",
+    category: "网络热词",
+    content: "‘夺笋哪’是‘多损呐’的谐音，用来调侃别人说话过于损人，但又带有幽默感。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 275,
+    title: "栓Q",
+    category: "网络热词",
+    content: "‘栓Q’是‘thank you’的谐音，用于表达感谢，但带有调侃和幽默的意味。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 276,
+    title: "芭比Q了",
+    category: "网络热词",
+    content: "‘芭比Q了’是‘完蛋了’的谐音，用来形容事情糟糕到了无法挽回的地步。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 277,
+    title: "绝绝子",
+    category: "网络热词",
+    content: "‘绝绝子’是‘绝了’的夸张说法，用来形容某件事情非常完美或非常糟糕。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 278,
+    title: "退！退！退！",
+    category: "网络热词",
+    content: "‘退！退！退！’是网络上的一种调侃用语，用来表达对某件事情的强烈不满或拒绝。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 279,
+    title: "芭比Q了",
+    category: "网络热词",
+    content: "‘芭比Q了’是‘完蛋了’的谐音，用来形容事情糟糕到了无法挽回的地步。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 280,
+    title: "我裂开了",
+    category: "网络热词",
+    content: "‘我裂开了’用来形容自己心情非常糟糕，内心受到了极大的打击。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 281,
+    title: "我emo了",
+    category: "网络热词",
+    content: "‘我emo了’是‘我情绪低落了’的谐音，用来形容自己心情不好，情绪低落。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 282,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 283,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 284,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 285,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 286,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 287,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 288,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 289,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 290,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 291,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 292,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 293,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 294,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 295,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 296,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 297,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+ {
+    id: 298,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识，常带有幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+ 
+
+{
+    id: 299,
+    title: "我裂开了",
+    category: "网络热词",
+    content: "‘我裂开了’用来形容自己心情非常糟糕，内心受到了极大的打击，通常带有夸张的幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 300,
+    title: "我emo了",
+    category: "网络热词",
+    content: "‘我emo了’是‘我情绪低落了’的谐音，用来形容自己心情不好，情绪低落，常用于自嘲。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 301,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识，常带有幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 302,
+    title: "芭比Q了",
+    category: "网络热词",
+    content: "‘芭比Q了’是‘完蛋了’的谐音，用来形容事情糟糕到了无法挽回的地步，常用于调侃。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 303,
+    title: "我裂开了",
+    category: "网络热词",
+    content: "‘我裂开了’用来形容自己心情非常糟糕，内心受到了极大的打击，通常带有夸张的幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 304,
+    title: "我emo了",
+    category: "网络热词",
+    content: "‘我emo了’是‘我情绪低落了’的谐音，用来形容自己心情不好，情绪低落，常用于自嘲。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 305,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识，常带有幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 306,
+    title: "芭比Q了",
+    category: "网络热词",
+    content: "‘芭比Q了’是‘完蛋了’的谐音，用来形容事情糟糕到了无法挽回的地步，常用于调侃。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 307,
+    title: "我裂开了",
+    category: "网络热词",
+    content: "‘我裂开了’用来形容自己心情非常糟糕，内心受到了极大的打击，通常带有夸张的幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 308,
+    title: "我emo了",
+    category: "网络热词",
+    content: "‘我emo了’是‘我情绪低落了’的谐音，用来形容自己心情不好，情绪低落，常用于自嘲。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 309,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识，常带有幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 310,
+    title: "芭比Q了",
+    category: "网络热词",
+    content: "‘芭比Q了’是‘完蛋了’的谐音，用来形容事情糟糕到了无法挽回的地步，常用于调侃。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 311,
+    title: "我裂开了",
+    category: "网络热词",
+    content: "‘我裂开了’用来形容自己心情非常糟糕，内心受到了极大的打击，通常带有夸张的幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 312,
+    title: "我emo了",
+    category: "网络热词",
+    content: "‘我emo了’是‘我情绪低落了’的谐音，用来形容自己心情不好，情绪低落，常用于自嘲。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 313,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识，常带有幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 314,
+    title: "芭比Q了",
+    category: "网络热词",
+    content: "‘芭比Q了’是‘完蛋了’的谐音，用来形容事情糟糕到了无法挽回的地步，常用于调侃。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 315,
+    title: "我裂开了",
+    category: "网络热词",
+    content: "‘我裂开了’用来形容自己心情非常糟糕，内心受到了极大的打击，通常带有夸张的幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 316,
+    title: "我emo了",
+    category: "网络热词",
+    content: "‘我emo了’是‘我情绪低落了’的谐音，用来形容自己心情不好，情绪低落，常用于自嘲。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 317,
+    title: "我悟了",
+    category: "网络热词",
+    content: "‘我悟了’用来形容自己突然明白了某件事情的真相，或者对某件事情有了新的认识，常带有幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 318,
+    title: "芭比Q了",
+    category: "网络热词",
+    content: "‘芭比Q了’是‘完蛋了’的谐音，用来形容事情糟糕到了无法挽回的地步，常用于调侃。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
+{
+    id: 319,
+    title: "我裂开了",
+    category: "网络热词",
+    content: "‘我裂开了’用来形容自己心情非常糟糕，内心受到了极大的打击，通常带有夸张的幽默感。",
+    funnyIndex: 6,
+    publishTime: "2025-03-25"
+},
+{
+    id: 320,
+    title: "我emo了",
+    category: "网络热词",
+    content: "‘我emo了’是‘我情绪低落了’的谐音，用来形容自己心情不好，情绪低落，常用于自嘲。",
+    funnyIndex: 7,
+    publishTime: "2025-03-25"
+},
 
 
 
@@ -2433,8 +2874,10 @@
 
 
 
-            
-            // 可以继续添加更多段子
+
+
+
+
         ];
 
         jokes.sort((a, b) => new Date(b.publishTime) - new Date(a.publishTime));
@@ -2448,6 +2891,7 @@
         const modalTitle = document.getElementById('modalTitle');
         const modalContentText = document.getElementById('modalContentText');
         const modalFunnyIndex = document.getElementById('modalFunnyIndex');
+        const jokeCountElement = document.querySelector('.joke-count'); // 获取段子数量元素
 
         let initialCount = 10;
         let loadCount = 5;
@@ -2503,6 +2947,7 @@
             jokeContainer.innerHTML = '';
             currentIndex = initialCount;
             displayJokes(filteredJokes, 0, initialCount);
+            updateJokeCount(filteredJokes.length); // 更新段子数量
         }
 
         function loadMoreJokes() {
@@ -2521,6 +2966,7 @@
             const endIndex = currentIndex + loadCount;
             displayJokes(filteredJokes, currentIndex, endIndex);
             currentIndex = endIndex;
+            updateJokeCount(filteredJokes.length); // 更新段子数量
         }
 
         function showModal(joke) {
@@ -2530,6 +2976,10 @@
             modal.style.display = 'flex';
         }
 
+        function updateJokeCount(count) {
+            jokeCountElement.textContent = `段子数量：${count}`; // 更新段子数量
+        }
+
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
@@ -2537,6 +2987,7 @@
         });
 
         displayJokes(jokes, 0, initialCount);
+        updateJokeCount(jokes.length); // 初始化段子数量
 
         searchInput.addEventListener('input', filterJokes);
         categorySelect.addEventListener('change', filterJokes);
@@ -2562,14 +3013,8 @@
     </script>
 
 
- 
-
-
     <!-- 谷歌联盟代码 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5624361140780293"
         crossorigin="anonymous"></script>
-
-
 </body>
-
 </html>
